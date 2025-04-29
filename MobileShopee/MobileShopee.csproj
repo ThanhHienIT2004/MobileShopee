@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -164,16 +164,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adminlogin.cs">
+    <Compile Include="Features\auth\Adminlogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adminlogin.Designer.cs">
+    <Compile Include="Features\auth\Adminlogin.Designer.cs">
       <DependentUpon>Adminlogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin_HomePage.cs">
+    <Compile Include="Features\admin\Admin_HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin_HomePage.Designer.cs">
+    <Compile Include="Features\admin\Admin_HomePage.Designer.cs">
       <DependentUpon>Admin_HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="ConformDetails.cs">
@@ -183,31 +183,31 @@
       <DependentUpon>ConformDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Db\DbConnectionFactory.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Features\auth\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Features\auth\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="User_HomePage.cs">
+    <Compile Include="Features\employees\User_HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_HomePage.Designer.cs">
+    <Compile Include="Features\employees\User_HomePage.Designer.cs">
       <DependentUpon>User_HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Adminlogin.resx">
+    <EmbeddedResource Include="Features\auth\Adminlogin.resx">
       <DependentUpon>Adminlogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin_HomePage.resx">
+    <EmbeddedResource Include="Features\admin\Admin_HomePage.resx">
       <DependentUpon>Admin_HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConformDetails.resx">
       <DependentUpon>ConformDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Features\auth\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -219,7 +219,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User_HomePage.resx">
+    <EmbeddedResource Include="Features\employees\User_HomePage.resx">
       <DependentUpon>User_HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
