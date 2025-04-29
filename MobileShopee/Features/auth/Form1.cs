@@ -69,6 +69,19 @@ namespace MobileShopee
         {
             MessageBox.Show("Chức năng quên mật khẩu đang được phát triển!");
         }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Adminlogin adminlogin = new Adminlogin();
+            adminlogin.Show();
+            this.Hide();
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

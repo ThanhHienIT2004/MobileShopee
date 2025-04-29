@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileShopee.Db;
+using MobileShopee.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,49 +14,60 @@ namespace MobileShopee
 {
     public partial class Admin_HomePage : Form
     {
+        private readonly CompanyRepository _companyRepository;
         public Admin_HomePage()
         {
             InitializeComponent();
+            _companyRepository = new CompanyRepository(new DbConnectionFactory());
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        // Hàm này sẽ lấy ID tiếp theo và điền vào textBox1
+        private void LoadNextCompanyId()
         {
-
+            try
+            {
+                // Gọi phương thức GetNextCompanyId để lấy ID tiếp theo
+                string nextId = _companyRepository.GetNextCompanyId();
+                textBox1.Text = nextId; // Điền vào textbox
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã công ty: " + ex.Message);
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Admin_HomePage_Load_1(object sender, EventArgs e)
         {
-
+            LoadNextCompanyId();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string compid = textBox1.Text;
+            string cname = textBox2.Text;
 
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
+            if (String.IsNullOrEmpty(compid) || String.IsNullOrEmpty(cname))
+            {
+                MessageBox.Show("Vui lòng nhập tên công ty");
+                return;
+            }
+            try
+            {
+                bool isSuccess = _companyRepository.PostCompany(compid,cname);
+                if (isSuccess) {
+                    MessageBox.Show("Thành công");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Thất bại");
+                }
+            }
+            catch(Exception ex) 
+            {
+        
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
         }
     }
 }
