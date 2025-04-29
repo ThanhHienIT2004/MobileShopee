@@ -164,18 +164,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\auth\Adminlogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\auth\Adminlogin.Designer.cs">
-      <DependentUpon>Adminlogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\admin\Admin_HomePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\admin\Admin_HomePage.Designer.cs">
-      <DependentUpon>Admin_HomePage.cs</DependentUpon>
-    </Compile>
     <Compile Include="ConformDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,32 +171,48 @@
       <DependentUpon>ConformDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Db\DbConnectionFactory.cs" />
+    <Compile Include="Features\admin\Admin_HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\admin\Admin_HomePage.Designer.cs">
+      <DependentUpon>Admin_HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\auth\Adminlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\auth\Adminlogin.Designer.cs">
+      <DependentUpon>Adminlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\auth\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\auth\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Features\employees\User_HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\employees\User_HomePage.Designer.cs">
       <DependentUpon>User_HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\SalesRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Features\auth\Adminlogin.resx">
-      <DependentUpon>Adminlogin.cs</DependentUpon>
+    <EmbeddedResource Include="ConformDetails.resx">
+      <DependentUpon>ConformDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\admin\Admin_HomePage.resx">
       <DependentUpon>Admin_HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConformDetails.resx">
-      <DependentUpon>ConformDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Features\auth\Adminlogin.resx">
+      <DependentUpon>Adminlogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\auth\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\employees\User_HomePage.resx">
+      <DependentUpon>User_HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -219,9 +223,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Features\employees\User_HomePage.resx">
-      <DependentUpon>User_HomePage.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
