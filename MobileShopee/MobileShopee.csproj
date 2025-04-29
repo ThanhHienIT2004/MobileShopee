@@ -189,6 +189,7 @@
     <Compile Include="Features\auth\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Features\employees\User_HomePage.cs">
       <SubType>Form</SubType>
