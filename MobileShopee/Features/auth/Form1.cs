@@ -36,8 +36,8 @@ namespace MobileShopee
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+            string username = txt_uname.Text;
+            string password = txt_upass.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -47,17 +47,28 @@ namespace MobileShopee
 
             try
             {
+
                 bool isValid = _userRepository.ValidateUser(username, password);
                 if (isValid)
                 {
                     MessageBox.Show("Đăng nhập thành công!");
-                    new ConformDetails().Show();
+                    if(username == "admin")
+                    {
+                        new ConformDetails().Show();
+                    }
+                    else
+                    {
+                        new User_HomePage().Show();
+
+                    }
                     this.Hide();
+
                 }
                 else
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
                 }
+
             }
             catch (Exception ex)
             {

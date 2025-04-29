@@ -33,9 +33,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtImei = new System.Windows.Forms.TextBox();
-            this.txtModel = new System.Windows.Forms.TextBox();
-            this.txtComp = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAddr = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -63,6 +60,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.comboBox_model = new System.Windows.Forms.ComboBox();
+            this.comboBox_company = new System.Windows.Forms.ComboBox();
+            this.comboBox_imei = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,11 +82,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox_imei);
+            this.tabPage1.Controls.Add(this.comboBox_company);
+            this.tabPage1.Controls.Add(this.comboBox_model);
             this.tabPage1.Controls.Add(this.txtPrice);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.txtImei);
-            this.tabPage1.Controls.Add(this.txtModel);
-            this.tabPage1.Controls.Add(this.txtComp);
             this.tabPage1.Controls.Add(this.txtEmail);
             this.tabPage1.Controls.Add(this.txtAddr);
             this.tabPage1.Controls.Add(this.txtPhone);
@@ -121,27 +121,6 @@
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Priec/Piece";
-            // 
-            // txtImei
-            // 
-            this.txtImei.Location = new System.Drawing.Point(119, 278);
-            this.txtImei.Name = "txtImei";
-            this.txtImei.Size = new System.Drawing.Size(141, 20);
-            this.txtImei.TabIndex = 13;
-            // 
-            // txtModel
-            // 
-            this.txtModel.Location = new System.Drawing.Point(119, 231);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(141, 20);
-            this.txtModel.TabIndex = 12;
-            // 
-            // txtComp
-            // 
-            this.txtComp.Location = new System.Drawing.Point(119, 197);
-            this.txtComp.Name = "txtComp";
-            this.txtComp.Size = new System.Drawing.Size(141, 20);
-            this.txtComp.TabIndex = 11;
             // 
             // txtEmail
             // 
@@ -387,6 +366,33 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // comboBox_model
+            // 
+            this.comboBox_model.FormattingEnabled = true;
+            this.comboBox_model.Location = new System.Drawing.Point(119, 235);
+            this.comboBox_model.Name = "comboBox_model";
+            this.comboBox_model.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_model.TabIndex = 16;
+            this.comboBox_model.SelectedIndexChanged += new System.EventHandler(this.comboBox_model_SelectedIndexChanged);
+            // 
+            // comboBox_company
+            // 
+            this.comboBox_company.FormattingEnabled = true;
+            this.comboBox_company.Location = new System.Drawing.Point(119, 196);
+            this.comboBox_company.Name = "comboBox_company";
+            this.comboBox_company.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_company.TabIndex = 17;
+            this.comboBox_company.SelectedIndexChanged += new System.EventHandler(this.comboBox_company_SelectedIndexChanged);
+            // 
+            // comboBox_imei
+            // 
+            this.comboBox_imei.FormattingEnabled = true;
+            this.comboBox_imei.Location = new System.Drawing.Point(119, 277);
+            this.comboBox_imei.Name = "comboBox_imei";
+            this.comboBox_imei.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_imei.TabIndex = 18;
+            this.comboBox_imei.SelectedIndexChanged += new System.EventHandler(this.comboBox_imei_SelectedIndexChanged);
+            // 
             // User_HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,9 +431,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox txtImei;
-        private System.Windows.Forms.TextBox txtModel;
-        private System.Windows.Forms.TextBox txtComp;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAddr;
         private System.Windows.Forms.TextBox txtPhone;
@@ -444,5 +447,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ComboBox comboBox_imei;
+        private System.Windows.Forms.ComboBox comboBox_company;
+        private System.Windows.Forms.ComboBox comboBox_model;
     }
 }
