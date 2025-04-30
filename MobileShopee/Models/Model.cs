@@ -11,6 +11,6 @@ namespace MobileShopee.Models
         public string ModelId { get; set; }
         public string CompId { get; set; }
         public string ModelNum { get; set; }
-        public int AvailableQty { get; set; }
+        public string AvailableQty { get; set; }
     }
 }

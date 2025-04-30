@@ -26,6 +26,8 @@ namespace MobileShopee
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+            new Adminlogin().Show();
+            this.Hide();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
