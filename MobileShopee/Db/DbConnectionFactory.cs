@@ -15,6 +15,6 @@ namespace MobileShopee.Db
         public SqlConnection CreateConnection()
         {
             return new SqlConnection(_connectionString);
-        }
+        }   
     }
 }
