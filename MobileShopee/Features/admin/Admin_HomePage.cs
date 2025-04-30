@@ -61,8 +61,12 @@ namespace MobileShopee
                     MessageBox.Show("Không có công ty nào trong cơ sở dữ liệu.");
                 }
                 comboBox1.DataSource = companies;
-                comboBox1.DisplayMember = "CName"; // Hiển thị tên công ty
-                comboBox1.ValueMember = "CompId";    // Lưu CompanyID
+                comboBox1.DisplayMember = "CName"; 
+                comboBox1.ValueMember = "CompId";
+
+                comboBox4.DataSource = companies;
+                comboBox4.DisplayMember = "CName";
+                comboBox4.ValueMember = "CompId";
             }
             catch (Exception ex)
             {
@@ -140,6 +144,12 @@ namespace MobileShopee
             }
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string CompanyName = comboBox4.SelectedValue?.ToString();
+            string ModelNum = textBox4.Text;
         }
     }
 }
