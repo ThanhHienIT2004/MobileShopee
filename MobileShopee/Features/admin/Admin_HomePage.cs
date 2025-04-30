@@ -18,12 +18,14 @@ namespace MobileShopee
         private readonly CompanyRepository _companyRepository;
         private readonly ModelRepository _modelRepository;
         private readonly MobileRepository _mobileRepository;
+        private readonly TransactionRepository _transactionRepository;
         public Admin_HomePage()
         {
             InitializeComponent();
             _companyRepository = new CompanyRepository(new DbConnectionFactory());
             _modelRepository = new ModelRepository(new DbConnectionFactory());
             _mobileRepository = new MobileRepository(new DbConnectionFactory());
+            _transactionRepository = new TransactionRepository(new DbConnectionFactory());
         }
 
         private void LoadNextCompanyId()
@@ -51,6 +53,18 @@ namespace MobileShopee
                 MessageBox.Show("Lỗi khi lấy mã công ty: " + ex.Message);
             }
         }
+        private void LoadNextTransId()
+        {
+            try
+            {
+                string nextId = _transactionRepository.GetNextTransId();
+                textBox5.Text = nextId;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã giao dịch: " + ex.Message);
+            }
+        }
 
         private void LoadCompaniesIntoComboBox()
         {
@@ -68,6 +82,10 @@ namespace MobileShopee
                 comboBox4.DataSource = companies.ToList(); // Sao chép để tránh ảnh hưởng comboBox1
                 comboBox4.DisplayMember = "CName";
                 comboBox4.ValueMember = "CompId";
+
+                comboBox2.DataSource = companies.ToList();
+                comboBox2.DisplayMember = "CName";
+                comboBox2.ValueMember = "CompId";
             }
             catch (Exception ex)
             {
@@ -104,13 +122,15 @@ namespace MobileShopee
             }
         }
 
+
+
         private void Admin_HomePage_Load_1(object sender, EventArgs e)
         {
             LoadNextCompanyId();
             LoadNextModelId();
+            LoadNextTransId();
             LoadCompaniesIntoComboBox();
 
-            // Gán sự kiện SelectedIndexChanged cho comboBox4
             comboBox4.SelectedIndexChanged += (s, ev) =>
             {
                 string selectedCompId = comboBox4.SelectedValue?.ToString();
@@ -118,7 +138,59 @@ namespace MobileShopee
                 {
                     LoadModelsByCompany(selectedCompId);
                 }
+                else
+                {
+                    comboBox5.DataSource = null;
+                    comboBox5.Items.Clear();
+                }
             };
+
+            comboBox2.SelectedIndexChanged += (s, ev) =>
+            {
+                string selectedCompId = comboBox2.SelectedValue?.ToString();
+                if (!string.IsNullOrEmpty(selectedCompId))
+                {
+                    LoadModelsByCompanyForTrans(selectedCompId);
+                }
+                else
+                {
+                    comboBox3.DataSource = null;
+                    comboBox3.Items.Clear();
+                }
+            };
+
+            if (comboBox4.SelectedValue != null)
+            {
+                LoadModelsByCompany(comboBox4.SelectedValue.ToString());
+            }
+        }
+
+        private void LoadModelsByCompanyForTrans(string compId)
+        {
+            try
+            {
+                comboBox3.DataSource = null;
+                comboBox3.Items.Clear();
+
+                if (string.IsNullOrEmpty(compId))
+                {
+                    return;
+                }
+
+                var models = _modelRepository.GetModelsByCompany(compId);
+                if (models.Count == 0)
+                {
+                    MessageBox.Show("Không có model nào cho công ty này.");
+                }
+
+                comboBox3.DataSource = models;
+                comboBox3.DisplayMember = "ModelNum";
+                comboBox3.ValueMember = "ModelId";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách model: " + ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -219,6 +291,53 @@ namespace MobileShopee
                 else
                 {
                     MessageBox.Show("Thêm mobile thất bại.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string transId = textBox5.Text; // Lấy TransId từ textBox5
+            string modelId = comboBox3.SelectedValue?.ToString();
+            if (!int.TryParse(textBox6.Text, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên dương hợp lệ.");
+                return;
+            }
+            DateTime date = DateTime.Now;
+            if (!decimal.TryParse(textBox7.Text, out decimal amountValue))
+            {
+                MessageBox.Show("Số tiền phải là số hợp lệ.");
+                return;
+            }
+            SqlMoney amount = new SqlMoney(amountValue);
+
+            if (string.IsNullOrEmpty(transId) || string.IsNullOrEmpty(modelId))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi thêm giao dịch.");
+                return;
+            }
+
+            try
+            {
+                bool isSuccess = _transactionRepository.PostTrans(transId, modelId, quantity, date, amount);
+                if (isSuccess)
+                {
+                    MessageBox.Show("Thêm giao dịch thành công.");
+                    LoadNextTransId(); // Cập nhật TransId mới
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    comboBox2.SelectedIndex = -1;
+                    comboBox3.DataSource = null;
+                    comboBox3.Items.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm giao dịch thất bại.");
                 }
             }
             catch (Exception ex)

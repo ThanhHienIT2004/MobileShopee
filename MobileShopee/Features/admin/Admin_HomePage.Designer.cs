@@ -46,6 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -101,7 +102,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -320,6 +320,13 @@
             this.tabPage7.Text = "Mobile";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Location = new System.Drawing.Point(180, 244);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(209, 22);
+            this.dateTimePicker4.TabIndex = 11;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(127, 299);
@@ -484,6 +491,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "UPDATE";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label10
             // 
@@ -863,13 +871,6 @@
             this.label21.Size = new System.Drawing.Size(112, 16);
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(180, 244);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(209, 22);
-            this.dateTimePicker4.TabIndex = 11;
             // 
             // Admin_HomePage
             // 
