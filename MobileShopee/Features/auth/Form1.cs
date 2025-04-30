@@ -51,10 +51,10 @@ namespace MobileShopee
                 switch (role?.Trim())
                 {
                     case "User":
-                        new ConformDetails().Show();
+                        new User_HomePage().Show();
                         break;
                     case "Admin":
-                        new Admin_HomePage();
+                        new Admin_HomePage().Show();
                         break;
                     default:
                         MessageBox.Show($"Vai trò không được hỗ trợ: {role}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
