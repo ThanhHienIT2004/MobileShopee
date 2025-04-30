@@ -16,7 +16,10 @@ namespace MobileShopee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Admin_HomePage());
+            //Application.Run(new Admin_HomePage());
+            Application.Run(new Form1());
+
+
         }
     }
 }

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MobileShopee.Models
 {
-    public class Model
+    public class Transaction
     {
+        public string TransId { get; set; }
         public string ModelId { get; set; }
-        public string CompId { get; set; }
-        public string ModelNum { get; set; }
-        public int AvailableQty { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
     }
 }

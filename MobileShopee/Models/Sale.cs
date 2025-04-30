@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MobileShopee.Models
 {
-    public class Mobile
+    public class Sale
     {
-        public string ModelId { get; set; }
+        public string SId { get; set; }
         public string IMEINO { get; set; }
-        public string Status { get; set; }
-        public DateTime? Warranty { get; set; }
+        public DateTime PurchaseDate { get; set; }
         public decimal Price { get; set; }
+        public string CustId { get; set; }
     }
 }

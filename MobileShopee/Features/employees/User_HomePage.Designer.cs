@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox_imei = new System.Windows.Forms.ComboBox();
+            this.comboBox_company = new System.Windows.Forms.ComboBox();
+            this.comboBox_model = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -60,9 +63,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.comboBox_model = new System.Windows.Forms.ComboBox();
-            this.comboBox_company = new System.Windows.Forms.ComboBox();
-            this.comboBox_imei = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,6 +105,33 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_imei
+            // 
+            this.comboBox_imei.FormattingEnabled = true;
+            this.comboBox_imei.Location = new System.Drawing.Point(119, 277);
+            this.comboBox_imei.Name = "comboBox_imei";
+            this.comboBox_imei.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_imei.TabIndex = 18;
+            this.comboBox_imei.SelectedIndexChanged += new System.EventHandler(this.comboBox_imei_SelectedIndexChanged);
+            // 
+            // comboBox_company
+            // 
+            this.comboBox_company.FormattingEnabled = true;
+            this.comboBox_company.Location = new System.Drawing.Point(119, 196);
+            this.comboBox_company.Name = "comboBox_company";
+            this.comboBox_company.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_company.TabIndex = 17;
+            this.comboBox_company.SelectedIndexChanged += new System.EventHandler(this.comboBox_company_SelectedIndexChanged);
+            // 
+            // comboBox_model
+            // 
+            this.comboBox_model.FormattingEnabled = true;
+            this.comboBox_model.Location = new System.Drawing.Point(119, 235);
+            this.comboBox_model.Name = "comboBox_model";
+            this.comboBox_model.Size = new System.Drawing.Size(141, 21);
+            this.comboBox_model.TabIndex = 16;
+            this.comboBox_model.SelectedIndexChanged += new System.EventHandler(this.comboBox_model_SelectedIndexChanged);
             // 
             // txtPrice
             // 
@@ -365,33 +392,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // comboBox_model
-            // 
-            this.comboBox_model.FormattingEnabled = true;
-            this.comboBox_model.Location = new System.Drawing.Point(119, 235);
-            this.comboBox_model.Name = "comboBox_model";
-            this.comboBox_model.Size = new System.Drawing.Size(141, 21);
-            this.comboBox_model.TabIndex = 16;
-            this.comboBox_model.SelectedIndexChanged += new System.EventHandler(this.comboBox_model_SelectedIndexChanged);
-            // 
-            // comboBox_company
-            // 
-            this.comboBox_company.FormattingEnabled = true;
-            this.comboBox_company.Location = new System.Drawing.Point(119, 196);
-            this.comboBox_company.Name = "comboBox_company";
-            this.comboBox_company.Size = new System.Drawing.Size(141, 21);
-            this.comboBox_company.TabIndex = 17;
-            this.comboBox_company.SelectedIndexChanged += new System.EventHandler(this.comboBox_company_SelectedIndexChanged);
-            // 
-            // comboBox_imei
-            // 
-            this.comboBox_imei.FormattingEnabled = true;
-            this.comboBox_imei.Location = new System.Drawing.Point(119, 277);
-            this.comboBox_imei.Name = "comboBox_imei";
-            this.comboBox_imei.Size = new System.Drawing.Size(141, 21);
-            this.comboBox_imei.TabIndex = 18;
-            this.comboBox_imei.SelectedIndexChanged += new System.EventHandler(this.comboBox_imei_SelectedIndexChanged);
             // 
             // User_HomePage
             // 
