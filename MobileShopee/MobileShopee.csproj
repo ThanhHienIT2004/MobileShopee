@@ -190,6 +190,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Model.cs" />
     <Compile Include="Repository\CompanyRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Features\employees\User_HomePage.cs">
