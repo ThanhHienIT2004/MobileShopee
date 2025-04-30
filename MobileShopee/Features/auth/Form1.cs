@@ -45,37 +45,40 @@ namespace MobileShopee
                 return;
             }
 
-            var (success, role, message) = _userRepository.Login(username, password);
-            if (success)
+            try
             {
-                switch (role?.Trim())
+
+                bool isValid = _userRepository.ValidateUser(username, password);
+                if (isValid)
                 {
-                    case "User":
+                    MessageBox.Show("Đăng nhập thành công!");
+                    if(username == "admin")
+                    {
                         new ConformDetails().Show();
-                        break;
-                    case "Admin":
-                        new Admin_HomePage();
-                        break;
-                    default:
-                        MessageBox.Show($"Vai trò không được hỗ trợ: {role}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                    }
+                    else
+                    {
+                        new User_HomePage().Show();
+
+                    }
+                    this.Hide();
+
                 }
-                this.Hide();
+                else
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(message);
+                MessageBox.Show($"Lỗi: {ex.Message}");
             }
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Chức năng quên mật khẩu đang được phát triển!");
-        }
-
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
     }
 
