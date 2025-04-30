@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace MobileShopee.Models
         public string ModelId { get; set; }
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
-        public decimal Amount { get; set; }
+        public SqlMoney Amount { get; set; }
+
     }
 }
