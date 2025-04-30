@@ -43,34 +43,26 @@ namespace MobileShopee
                 return;
             }
 
-            try
+            var (success, role, message) = _userRepository.Login(username, password);
+            if (success)
             {
-
-                bool isValid = _userRepository.ValidateUser(username, password);
-                if (isValid)
+                switch (role?.Trim())
                 {
-                    MessageBox.Show("Đăng nhập thành công!");
-                    if(username == "admin")
-                    {
-                        new ConformDetails().Show();
-                    }
-                    else
-                    {
+                    case "User":
                         new User_HomePage().Show();
-
-                    }
-                    this.Hide();
-
+                        break;
+                    case "Admin":
+                        new Admin_HomePage().Show();
+                        break;
+                    default:
+                        MessageBox.Show($"Vai trò không được hỗ trợ: {role}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                 }
-                else
-                {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
-                }
-
+                this.Hide();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show(message);
             }
         }
 
@@ -80,14 +72,6 @@ namespace MobileShopee
         }
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Adminlogin adminlogin = new Adminlogin();
-            adminlogin.Show();
-            this.Hide();
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
         {
 
         }

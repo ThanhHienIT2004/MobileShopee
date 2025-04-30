@@ -46,8 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -300,8 +300,8 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.dateTimePicker4);
             this.tabPage7.Controls.Add(this.button4);
+            this.tabPage7.Controls.Add(this.comboBox6);
             this.tabPage7.Controls.Add(this.comboBox5);
             this.tabPage7.Controls.Add(this.comboBox4);
             this.tabPage7.Controls.Add(this.textBox9);
@@ -320,13 +320,6 @@
             this.tabPage7.Text = "Mobile";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(180, 244);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(209, 22);
-            this.dateTimePicker4.TabIndex = 11;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(127, 299);
@@ -336,7 +329,16 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "INSERT";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btnInsert_Click);
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(180, 242);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 24);
+            this.comboBox6.TabIndex = 9;
             // 
             // comboBox5
             // 
@@ -491,7 +493,6 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "UPDATE";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label10
             // 
@@ -942,6 +943,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox9;
@@ -982,6 +984,5 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
     }
 }
