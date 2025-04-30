@@ -35,8 +35,6 @@
             this.btn_login = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.Title = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // txt_uname
@@ -63,7 +61,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "User Name:";
+            this.label1.Text = "UserName";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -74,7 +72,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Password";
             // 
             // btn_login
             // 
@@ -108,23 +106,7 @@
             this.linkLabel2.Size = new System.Drawing.Size(89, 13);
             this.linkLabel2.TabIndex = 8;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Forgot Password?";
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(209, 37);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(214, 32);
-            this.Title.TabIndex = 9;
-            this.Title.Text = "Welcome Back";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.linkLabel2.Text = "ForgotPassword?";
             // 
             // Form1
             // 
@@ -155,8 +137,6 @@
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
