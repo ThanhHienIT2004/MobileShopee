@@ -131,6 +131,28 @@ namespace MobileShopee.Repository
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+
+        public bool UpdateModelQuantity(string modelId, int quantity)
+        {
+            try
+            {
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        "UPDATE tbl_Model SET AvailableQty = @Quantity " +
+                        "WHERE ModelId = @ModelId", conn);
+                    cmd.Parameters.AddWithValue("@ModelId", modelId);
+                    cmd.Parameters.AddWithValue("@Quantity", quantity);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật số lượng model: " + ex.Message);
+            }
+        }
     }
 
 }
