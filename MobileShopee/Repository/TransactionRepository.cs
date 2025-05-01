@@ -31,29 +31,5 @@ namespace MobileShopee.Repository
                 }
             }
         }
-        public bool UpdateTrans(Transaction trans)
-        {
-            try
-            {
-                using (SqlConnection conn = _connectionFactory.CreateConnection())
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        "UPDATE tbl_Transaction SET ModelId = @ModelId, Quantity = @Quantity, Date = @Date, Amount = @Amount " +
-                        "WHERE TransId = @TransId", conn);
-                    cmd.Parameters.AddWithValue("@TransId", trans.TransId);
-                    cmd.Parameters.AddWithValue("@ModelId", trans.ModelId);
-                    cmd.Parameters.AddWithValue("@Quantity", trans.Quantity);
-                    cmd.Parameters.AddWithValue("@Date", trans.Date);
-                    cmd.Parameters.AddWithValue("@Amount", trans.Amount);
-
-                    return cmd.ExecuteNonQuery() > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi khi cập nhật giao dịch: " + ex.Message);
-            }
-        }
     }
 }
