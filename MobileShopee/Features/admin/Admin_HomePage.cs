@@ -325,7 +325,8 @@ namespace MobileShopee
             try
             {
                 bool isSuccess = _transactionRepository.PostTrans(transId, modelId, quantity, date, amount);
-                if (isSuccess)
+                bool isUpdateModel = _modelRepository.UpdateModelQuantity(modelId, quantity);
+                if (isSuccess && isUpdateModel)
                 {
                     MessageBox.Show("Thêm giao dịch thành công.");
                     LoadNextTransId(); // Cập nhật TransId mới
