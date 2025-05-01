@@ -29,6 +29,35 @@ namespace MobileShopee.Repository
                 }
             }
         }
+
+        public int GetModelQuantity(string modelId)
+        {
+            try
+            {
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT AvailableQty FROM tbl_Model WHERE ModelId = @ModelId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ModelId", modelId);
+                        var result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            throw new Exception($"Không tìm thấy model với ModelId: {modelId}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy số lượng model: " + ex.Message);
+            }
+        }
         public string GetNextModelId()
         {
             using (SqlConnection conn = _connectionFactory.CreateConnection())
