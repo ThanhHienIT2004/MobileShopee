@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using MobileShopee.Db;
 using MobileShopee.Models;
 
@@ -76,6 +77,31 @@ namespace MobileShopee.Repository
                         throw new Exception("Không thể cập nhật trạng thái. IMEI không tồn tại.");
                     }
                 }
+            }
+        }
+
+        public bool PostMobile(string modelId, string imeiNo, string status, DateTime warranty, SqlMoney price)
+        {
+            try
+            {
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        "INSERT INTO tbl_Mobile (ModelId, IMEINO, Status, Warranty, Price) " +
+                        "VALUES (@ModelId, @IMEINO, @Status, @Warranty, @Price)", conn);
+                    cmd.Parameters.AddWithValue("@ModelId", modelId);
+                    cmd.Parameters.AddWithValue("@IMEINO", imeiNo);
+                    cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@Warranty", warranty);
+                    cmd.Parameters.AddWithValue("@Price", price); // Đã dùng SqlMoney
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi thêm mobile: " + ex.Message);
             }
         }
     }
