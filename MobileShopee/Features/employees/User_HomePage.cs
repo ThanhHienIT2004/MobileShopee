@@ -34,17 +34,6 @@ namespace MobileShopee
             LoadCompanies(); // Tải danh sách công ty khi Form được tải
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            // Giữ nguyên hàm này, có thể để trống hoặc thêm logic nếu cần
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Giữ nguyên hàm này, có thể để trống hoặc thêm logic nếu cần
-            // Lưu ý: Kiểm tra xem có control "comboBox1" hay không, vì không thấy trong thiết kế
-        }
-
         private void LoadCompanies()
         {
             try

@@ -213,7 +213,6 @@
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Company Name";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -300,7 +299,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label12
             // 
