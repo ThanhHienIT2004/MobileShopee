@@ -189,7 +189,8 @@ namespace MobileShopee
 
             try
             {
-                string custId = "C" + DateTime.Now.Ticks.ToString().Substring(0, 8);
+                // Generate CustId using UUID (prefix "C" + first 8 characters of UUID)
+                string custId = "C" + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
                 var customer = new Customer
                 {
                     CustId = custId,
@@ -199,7 +200,8 @@ namespace MobileShopee
                     Email = txtEmail.Text
                 };
 
-                string salesId = "SALE" + DateTime.Now.Ticks.ToString().Substring(0, 8);
+                // Generate SalesId using UUID (prefix "S" + first 8 characters of UUID)
+                string salesId = "S" + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
                 string selectedImei = comboBox_imei.SelectedValue.ToString();
                 decimal price = decimal.Parse(txtPrice.Text);
                 var sale = new Sale
@@ -211,12 +213,9 @@ namespace MobileShopee
                     CustId = custId
                 };
 
-                // Get company name from comboBox_company
                 string companyName = comboBox_company.Text;
-                // Get model number from comboBox_model
                 string modelNumber = comboBox_model.Text;
 
-                // Show confirmation form
                 using (var confirmationForm = new ConfirmationForm(sale, customer, this, companyName, modelNumber))
                 {
                     confirmationForm.ShowDialog();
@@ -283,11 +282,58 @@ namespace MobileShopee
                 _mobileRepository.UpdateMobileStatus(imei, "Sold");
                 string selectedModelId = comboBox_model.SelectedValue.ToString();
                 _modelRepository.UpdateModelQuantity(selectedModelId);
-                MessageBox.Show("Ghi nhận bán hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi hoàn tất giao dịch: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+        public void ClearFormFields()
+        {
+            // Clear customer details
+            txtName.Clear();
+            txtPhone.Clear();
+            txtAddr.Clear();
+            txtEmail.Clear();
+
+            // Reset company and model dropdowns
+            comboBox_company.SelectedIndex = -1;
+            comboBox_model.DataSource = null;
+            comboBox_model.SelectedIndex = -1;
+
+            // Clear IMEI and price
+            comboBox_imei.DataSource = null;
+            comboBox_imei.SelectedIndex = -1;
+            txtPrice.Clear();
+
+            // Clear search fields and grid (if applicable)
+            txtSearchIMEI.Clear();
+            dataGridViewCustomer.Rows.Clear();
+
+            // Reset company and model dropdowns in the second tab (if applicable)
+            comboBox_company_2.SelectedIndex = -1;
+            comboBox_model_2.DataSource = null;
+            comboBox_model_2.SelectedIndex = -1;
+            txt_quantity.Clear();
+        }
+        public void ConfirmAndSave(Sale sale, Customer customer)
+        {
+            try
+            {
+                // Insert the customer into the database
+                _customerRepository.AddCustomer(customer);
+
+                // Insert the sale into the database
+                _saleRepository.AddSale(sale);
+
+                // Finalize the transaction (update mobile status and model quantity)
+                FinalizeSale(sale.IMEINO, customer.CustId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu giao dịch: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
     }

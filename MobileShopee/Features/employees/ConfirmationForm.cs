@@ -35,15 +35,21 @@ namespace MobileShopee
             lblModelNumberValue.Text = _modelNumber;
             lblIMEIValue.Text = _sale.IMEINO;
             lblPriceValue.Text = _sale.Price.ToString("C2");
-            lblWarrantyValue.Text = DateTime.Now.AddYears(1).ToString("dd/MM/yyyy"); // Example warranty date (1 year from now)
+            lblWarrantyValue.Text = DateTime.Now.AddYears(1).ToString("dd/MM/yyyy");
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             try
             {
-                _parentForm.FinalizeSale(_sale.IMEINO, _customer.CustId);
+                // Insert Customer and Sale into the database via the parent form
+                _parentForm.ConfirmAndSave(_sale, _customer);
                 MessageBox.Show("Giao dịch đã được xác nhận thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear all fields in User_HomePage
+                _parentForm.ClearFormFields();
+
+                // Close the ConfirmationForm
                 this.Close();
             }
             catch (Exception ex)
