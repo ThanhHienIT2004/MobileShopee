@@ -70,6 +70,31 @@ namespace MobileShopee.Repository
                 return result?.ToString(); // Trả về ID tiếp theo
             }
         }
+        public int GetModelQuantity(string compId, string modelId)
+        {
+            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            {
+                conn.Open();
+                var query = "SELECT AvailableQty FROM tbl_Model WHERE 1=1";
+
+                if (!string.IsNullOrWhiteSpace(compId))
+                    query += " AND CompId = @CompId";
+
+                if (!string.IsNullOrWhiteSpace(modelId))
+                    query += " AND ModelId = @ModelId";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(compId))
+                        cmd.Parameters.AddWithValue("@CompId", compId);
+                    if (!string.IsNullOrWhiteSpace(modelId))
+                        cmd.Parameters.AddWithValue("@ModelId", modelId);
+
+                    var result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+        }
 
         public List<Model> GetModel()
         {

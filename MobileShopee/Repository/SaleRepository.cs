@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 using MobileShopee.Db;
 using MobileShopee.Models;
 
@@ -11,6 +12,29 @@ namespace MobileShopee.Repository
         public SaleRepository(DbConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
+        }
+
+        public DataTable GetCustomerByIMEI(string imei)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            {
+                conn.Open();
+                string query = "SELECT c.CustId, c.Cust_Name, c.MobileNumber, c.Email, c.Address " +
+                               "FROM tbl_Sales s " +
+                               "JOIN tbl_Customer c ON s.CustId = c.CustId " +
+                               "WHERE s.IMEINO = @IMEI";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IMEI", imei);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            return dt;
         }
 
         public void AddSale(Sale sale)

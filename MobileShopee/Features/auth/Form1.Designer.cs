@@ -53,6 +53,7 @@
             this.txt_upass.Name = "txt_upass";
             this.txt_upass.Size = new System.Drawing.Size(105, 20);
             this.txt_upass.TabIndex = 1;
+            this.txt_upass.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -60,7 +61,7 @@
             this.label1.Location = new System.Drawing.Point(11, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "User Name:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -71,7 +72,7 @@
             this.label2.Location = new System.Drawing.Point(11, 122);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
@@ -104,7 +105,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(63, 201);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(89, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(92, 13);
             this.linkLabel2.TabIndex = 8;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Forgot Password?";
