@@ -51,7 +51,7 @@ namespace MobileShopee.Repository
                 using (SqlConnection conn = _connectionFactory.CreateConnection())
                 {
                     conn.Open();
-                    string query = "SELECT PWD, Role FROM tbl_User WHERE UserName = @UserName";
+                    string query = "SELECT Password, Role FROM tbl_User WHERE UserName = @UserName";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@UserName", username);
@@ -59,7 +59,7 @@ namespace MobileShopee.Repository
                         {
                             if (reader.Read())
                             {
-                                string storedPWD = reader["PWD"].ToString();
+                                string storedPWD = reader["Password"].ToString();
                                 string role = reader["Role"].ToString();
 
                                 if (password == storedPWD)

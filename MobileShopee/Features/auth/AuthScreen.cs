@@ -5,34 +5,22 @@ using MobileShopee.Repository;
 
 namespace MobileShopee
 {
-    public partial class Form1 : Form
+    public partial class AuthScreen : Form
     {
         private readonly UserRepository _userRepository;
 
-        public Form1()
+        public AuthScreen()
         {
             InitializeComponent();
             _userRepository = new UserRepository(new DbConnectionFactory());
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            MessageBox.Show("Chức năng quên mật khẩu đang được phát triển!");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_login_Click(object sender, EventArgs e)
         {
             string username = txt_uname.Text;
             string password = txt_upass.Text;
@@ -46,34 +34,27 @@ namespace MobileShopee
             var (success, role, message) = _userRepository.Login(username, password);
             if (success)
             {
+                var form = new Form();
                 switch (role?.Trim())
                 {
                     case "User":
-                        new User_HomePage().Show();
+                        form = new User_HomePage();
                         break;
                     case "Admin":
-                        new Admin_HomePage().Show();
+                        form = new Admin_HomePage();
                         break;
                     default:
                         MessageBox.Show($"Vai trò không được hỗ trợ: {role}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                 }
+                form.FormClosed += (s, args) => this.Close();
+                form.Show();
                 this.Hide();
             }
             else
             {
                 MessageBox.Show(message);
             }
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show("Chức năng quên mật khẩu đang được phát triển!");
-        }
-
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
     }
 
