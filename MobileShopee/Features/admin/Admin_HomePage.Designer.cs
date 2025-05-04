@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -73,16 +74,20 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
+            this.txtTotalPriceSalesDay = new System.Windows.Forms.TextBox();
+            this.btnSearchSalesDay = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.dateSalesDay = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
+            this.colSaleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModelNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIMEI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.btnSearchDtD = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateEndDtD = new System.Windows.Forms.DateTimePicker();
             this.dateStartDtD = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -102,11 +107,14 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.colSaleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModelNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIMEI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTotalPriceSalesDtD = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dataGridViewSalesDtD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -119,8 +127,8 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesDtD)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -579,7 +587,8 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.button6);
+            this.tabPage8.Controls.Add(this.txtTotalPriceSalesDay);
+            this.tabPage8.Controls.Add(this.btnSearchSalesDay);
             this.tabPage8.Controls.Add(this.label17);
             this.tabPage8.Controls.Add(this.dateSalesDay);
             this.tabPage8.Controls.Add(this.label16);
@@ -593,22 +602,30 @@
             this.tabPage8.Text = "Day";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // txtTotalPriceSalesDay
             // 
-            this.button6.AutoSize = true;
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(523, 35);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(77, 32);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Search";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.txtTotalPriceSalesDay.Location = new System.Drawing.Point(296, 503);
+            this.txtTotalPriceSalesDay.Name = "txtTotalPriceSalesDay";
+            this.txtTotalPriceSalesDay.ReadOnly = true;
+            this.txtTotalPriceSalesDay.Size = new System.Drawing.Size(247, 28);
+            this.txtTotalPriceSalesDay.TabIndex = 17;
+            // 
+            // btnSearchSalesDay
+            // 
+            this.btnSearchSalesDay.AutoSize = true;
+            this.btnSearchSalesDay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSearchSalesDay.Location = new System.Drawing.Point(523, 35);
+            this.btnSearchSalesDay.Name = "btnSearchSalesDay";
+            this.btnSearchSalesDay.Size = new System.Drawing.Size(77, 32);
+            this.btnSearchSalesDay.TabIndex = 16;
+            this.btnSearchSalesDay.Text = "Search";
+            this.btnSearchSalesDay.UseVisualStyleBackColor = true;
+            this.btnSearchSalesDay.Click += new System.EventHandler(this.btnSearchSalesDay_Click);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 525);
+            this.label17.Location = new System.Drawing.Point(68, 503);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 22);
             this.label17.TabIndex = 15;
@@ -638,14 +655,14 @@
             this.dataGridViewSales.AllowUserToAddRows = false;
             this.dataGridViewSales.AllowUserToDeleteRows = false;
             this.dataGridViewSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSaleId,
@@ -662,12 +679,48 @@
             this.dataGridViewSales.Size = new System.Drawing.Size(1148, 362);
             this.dataGridViewSales.TabIndex = 14;
             // 
+            // colSaleId
+            // 
+            this.colSaleId.HeaderText = "Sales ID";
+            this.colSaleId.MinimumWidth = 6;
+            this.colSaleId.Name = "colSaleId";
+            this.colSaleId.ReadOnly = true;
+            // 
+            // colCompanyName
+            // 
+            this.colCompanyName.HeaderText = "Company Name";
+            this.colCompanyName.MinimumWidth = 6;
+            this.colCompanyName.Name = "colCompanyName";
+            this.colCompanyName.ReadOnly = true;
+            // 
+            // colModelNumber
+            // 
+            this.colModelNumber.HeaderText = "Model Number";
+            this.colModelNumber.MinimumWidth = 6;
+            this.colModelNumber.Name = "colModelNumber";
+            this.colModelNumber.ReadOnly = true;
+            // 
+            // colIMEI
+            // 
+            this.colIMEI.HeaderText = "IMEINO";
+            this.colIMEI.MinimumWidth = 6;
+            this.colIMEI.Name = "colIMEI";
+            this.colIMEI.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.MinimumWidth = 6;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.btnSearchDtD);
+            this.tabPage9.Controls.Add(this.txtTotalPriceSalesDtD);
             this.tabPage9.Controls.Add(this.label20);
-            this.tabPage9.Controls.Add(this.dataGridView2);
-            this.tabPage9.Controls.Add(this.dateTimePicker3);
+            this.tabPage9.Controls.Add(this.dataGridViewSalesDtD);
+            this.tabPage9.Controls.Add(this.btnSearchDtD);
+            this.tabPage9.Controls.Add(this.dateEndDtD);
             this.tabPage9.Controls.Add(this.dateStartDtD);
             this.tabPage9.Controls.Add(this.label19);
             this.tabPage9.Controls.Add(this.label18);
@@ -690,42 +743,26 @@
             this.btnSearchDtD.TabIndex = 7;
             this.btnSearchDtD.Text = "Search";
             this.btnSearchDtD.UseVisualStyleBackColor = true;
+            this.btnSearchDtD.Click += new System.EventHandler(this.btnSearchDtD_Click);
             // 
-            // label20
+            // dateEndDtD
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(92, 310);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 22);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "label20";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(83, 121);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView2.TabIndex = 5;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(179, 75);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(213, 28);
-            this.dateTimePicker3.TabIndex = 3;
+            this.dateEndDtD.Location = new System.Drawing.Point(179, 75);
+            this.dateEndDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEndDtD.Name = "dateEndDtD";
+            this.dateEndDtD.Size = new System.Drawing.Size(213, 28);
+            this.dateEndDtD.TabIndex = 3;
+            this.dateEndDtD.Value = new System.DateTime(2025, 5, 5, 0, 0, 0, 0);
             // 
             // dateStartDtD
             // 
+            this.dateStartDtD.Checked = false;
             this.dateStartDtD.Location = new System.Drawing.Point(179, 30);
             this.dateStartDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateStartDtD.Name = "dateStartDtD";
             this.dateStartDtD.Size = new System.Drawing.Size(213, 28);
             this.dateStartDtD.TabIndex = 2;
+            this.dateStartDtD.Value = new System.DateTime(2025, 5, 4, 17, 15, 8, 0);
             // 
             // label19
             // 
@@ -900,40 +937,86 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
             // 
-            // colSaleId
+            // txtTotalPriceSalesDtD
             // 
-            this.colSaleId.HeaderText = "Sales ID";
-            this.colSaleId.MinimumWidth = 6;
-            this.colSaleId.Name = "colSaleId";
-            this.colSaleId.ReadOnly = true;
+            this.txtTotalPriceSalesDtD.Location = new System.Drawing.Point(296, 506);
+            this.txtTotalPriceSalesDtD.Name = "txtTotalPriceSalesDtD";
+            this.txtTotalPriceSalesDtD.ReadOnly = true;
+            this.txtTotalPriceSalesDtD.Size = new System.Drawing.Size(247, 28);
+            this.txtTotalPriceSalesDtD.TabIndex = 20;
             // 
-            // colCompanyName
+            // label20
             // 
-            this.colCompanyName.HeaderText = "Company Name";
-            this.colCompanyName.MinimumWidth = 6;
-            this.colCompanyName.Name = "colCompanyName";
-            this.colCompanyName.ReadOnly = true;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(68, 506);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(174, 22);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "Total sale Amount in";
             // 
-            // colModelNumber
+            // dataGridViewSalesDtD
             // 
-            this.colModelNumber.HeaderText = "Model Number";
-            this.colModelNumber.MinimumWidth = 6;
-            this.colModelNumber.Name = "colModelNumber";
-            this.colModelNumber.ReadOnly = true;
+            this.dataGridViewSalesDtD.AllowUserToAddRows = false;
+            this.dataGridViewSalesDtD.AllowUserToDeleteRows = false;
+            this.dataGridViewSalesDtD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalesDtD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewSalesDtD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSalesDtD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewSalesDtD.Location = new System.Drawing.Point(6, 128);
+            this.dataGridViewSalesDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewSalesDtD.Name = "dataGridViewSalesDtD";
+            this.dataGridViewSalesDtD.ReadOnly = true;
+            this.dataGridViewSalesDtD.RowHeadersWidth = 51;
+            this.dataGridViewSalesDtD.RowTemplate.Height = 24;
+            this.dataGridViewSalesDtD.Size = new System.Drawing.Size(1148, 362);
+            this.dataGridViewSalesDtD.TabIndex = 18;
             // 
-            // colIMEI
+            // dataGridViewTextBoxColumn1
             // 
-            this.colIMEI.HeaderText = "IMEINO";
-            this.colIMEI.MinimumWidth = 6;
-            this.colIMEI.Name = "colIMEI";
-            this.colIMEI.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Sales ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // colPrice
+            // dataGridViewTextBoxColumn2
             // 
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.MinimumWidth = 6;
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Company Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Model Number";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "IMEINO";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // Admin_HomePage
             // 
@@ -966,9 +1049,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesDtD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1019,9 +1102,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateEndDtD;
         private System.Windows.Forms.DateTimePicker dateStartDtD;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
@@ -1047,11 +1128,20 @@
         private System.Windows.Forms.DateTimePicker dateSalesDay;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridViewSales;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSearchSalesDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSaleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colModelNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIMEI;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.TextBox txtTotalPriceSalesDay;
+        private System.Windows.Forms.TextBox txtTotalPriceSalesDtD;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridView dataGridViewSalesDtD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

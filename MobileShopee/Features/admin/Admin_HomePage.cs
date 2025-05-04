@@ -30,6 +30,49 @@ namespace MobileShopee
             _saleRepository = new SaleRepository(new DbConnectionFactory());
         }
 
+        private void Admin_HomePage_Load_1(object sender, EventArgs e)
+        {
+            LoadNextCompanyId();
+            LoadNextModelId();
+            LoadNextTransId();
+            LoadCompaniesIntoComboBox();
+            LoadSaleReportsByDate();
+            LoadSaleReportsByDtD();
+
+            comboBox4.SelectedIndexChanged += (s, ev) =>
+            {
+                string selectedCompId = comboBox4.SelectedValue?.ToString();
+                if (!string.IsNullOrEmpty(selectedCompId))
+                {
+                    LoadModelsByCompany(selectedCompId);
+                }
+                else
+                {
+                    comboBox5.DataSource = null;
+                    comboBox5.Items.Clear();
+                }
+            };
+
+            comboBox2.SelectedIndexChanged += (s, ev) =>
+            {
+                string selectedCompId = comboBox2.SelectedValue?.ToString();
+                if (!string.IsNullOrEmpty(selectedCompId))
+                {
+                    LoadModelsByCompanyForTrans(selectedCompId);
+                }
+                else
+                {
+                    comboBox3.DataSource = null;
+                    comboBox3.Items.Clear();
+                }
+            };
+
+            if (comboBox4.SelectedValue != null)
+            {
+                LoadModelsByCompany(comboBox4.SelectedValue.ToString());
+            }
+        }
+
         // Hàm này sẽ lấy ID tiếp theo và điền vào textBox1
         private void LoadNextCompanyId()
         {
@@ -197,6 +240,10 @@ namespace MobileShopee
                         DataPropertyName = "Price",
                         HeaderText = "Giá bán"
                     });
+
+                    txtTotalPriceSalesDay.Text = reports
+                        .Where(r => !string.IsNullOrEmpty(r.Price))
+                        .Sum(r => decimal.Parse(r.Price)).ToString();
                 }
                 else
                 {
@@ -209,45 +256,62 @@ namespace MobileShopee
             }
         }
 
-        private void Admin_HomePage_Load_1(object sender, EventArgs e)
+        private void LoadSaleReportsByDtD()
         {
-            LoadNextCompanyId();
-            LoadNextModelId();
-            LoadNextTransId();
-            LoadCompaniesIntoComboBox();
-            LoadSaleReportsByDate();
-
-            comboBox4.SelectedIndexChanged += (s, ev) =>
+            try
             {
-                string selectedCompId = comboBox4.SelectedValue?.ToString();
-                if (!string.IsNullOrEmpty(selectedCompId))
+                DateTime startDate = dateStartDtD.Value.Date;
+                DateTime endDate = dateEndDtD.Value.Date;
+                var (success, reports, message) = _saleRepository.GetSaleReportsbyDtD(startDate, endDate);
+
+                if (success)
                 {
-                    LoadModelsByCompany(selectedCompId);
+                    dataGridViewSalesDtD.DataSource = reports;
+                    dataGridViewSalesDtD.AutoGenerateColumns = false;
+                    dataGridViewSalesDtD.Columns.Clear();
+                    dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colSaleId",
+                        DataPropertyName = "SaleId",
+                        HeaderText = "Mã bán hàng"
+                    });
+                    dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colCompanyName",
+                        DataPropertyName = "CompanyName",
+                        HeaderText = "Hãng"
+                    });
+                    dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colModelNumber",
+                        DataPropertyName = "ModelNumber",
+                        HeaderText = "Mẫu điện thoại"
+                    });
+                    dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colIMEI",
+                        DataPropertyName = "IMEINO",
+                        HeaderText = "IMEI"
+                    });
+                    dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colPrice",
+                        DataPropertyName = "Price",
+                        HeaderText = "Giá bán"
+                    });
+
+                    txtTotalPriceSalesDtD.Text = reports
+                        .Where(r => !string.IsNullOrEmpty(r.Price))
+                        .Sum(r => decimal.Parse(r.Price)).ToString();
                 }
                 else
                 {
-                    comboBox5.DataSource = null;
-                    comboBox5.Items.Clear();
+                    MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            };
-
-            comboBox2.SelectedIndexChanged += (s, ev) =>
+            }
+            catch (Exception ex)
             {
-                string selectedCompId = comboBox2.SelectedValue?.ToString();
-                if (!string.IsNullOrEmpty(selectedCompId))
-                {
-                    LoadModelsByCompanyForTrans(selectedCompId);
-                }
-                else
-                {
-                    comboBox3.DataSource = null;
-                    comboBox3.Items.Clear();
-                }
-            };
-
-            if (comboBox4.SelectedValue != null)
-            {
-                LoadModelsByCompany(comboBox4.SelectedValue.ToString());
+                MessageBox.Show($"Lỗi tải báo cáo: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -405,10 +469,14 @@ namespace MobileShopee
                 MessageBox.Show($"Lỗi: {ex.Message}");
             }
         }
-
-        private void button6_Click(object sender, EventArgs e)
+        private void btnSearchSalesDay_Click(object sender, EventArgs e)
         {
-            LoadSaleReportsByDate();          
+            LoadSaleReportsByDate();
+        }
+
+        private void btnSearchDtD_Click(object sender, EventArgs e)
+        {
+            LoadSaleReportsByDtD();
         }
     }
 }
