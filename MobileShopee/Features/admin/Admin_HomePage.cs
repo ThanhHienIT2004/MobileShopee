@@ -1,4 +1,6 @@
-﻿using MobileShopee.Db;
+﻿using Microsoft.IdentityModel.Tokens;
+using MobileShopee.Db;
+using MobileShopee.Models;
 using MobileShopee.Repository;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,7 @@ namespace MobileShopee
         private readonly MobileRepository _mobileRepository;
         private readonly TransactionRepository _transactionRepository;
         private readonly SaleRepository _saleRepository;
+        private readonly UserRepository _userRepository;
         public Admin_HomePage()
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace MobileShopee
             _mobileRepository = new MobileRepository(new DbConnectionFactory());
             _transactionRepository = new TransactionRepository(new DbConnectionFactory());
             _saleRepository = new SaleRepository(new DbConnectionFactory());
+            _userRepository = new UserRepository(new DbConnectionFactory());
         }
 
         private void Admin_HomePage_Load_1(object sender, EventArgs e)
@@ -481,6 +485,37 @@ namespace MobileShopee
                 return;
             }
             LoadSaleReportsByDtD();
+        }
+
+        private void btnAddEmp_Click(object sender, EventArgs e)
+        {
+            if (txtUserName.Text.IsNullOrEmpty() || 
+                txtPWD.Text.IsNullOrEmpty() || txtRePWD.Text.IsNullOrEmpty() ||
+                txtEmpName.Text.IsNullOrEmpty() || txtAddress.Text.IsNullOrEmpty() || txtMobile.Text.IsNullOrEmpty() ||
+                txtHint.Text.IsNullOrEmpty() || cBoxRole.Text.IsNullOrEmpty())
+            {
+                MessageBox.Show("Cần nhập hết giá trị trên");
+                return;
+            }
+
+            User user = new User();
+            user.UserName = txtUserName.Text;
+            user.PWD = txtPWD.Text;
+            user.EmployeeName = txtEmpName.Text;
+            user.Address = txtAddress.Text;
+            user.MobileNumber = txtMobile.Text;
+            user.Hint = txtHint.Text;
+            user.Role = cBoxRole.Text;
+
+            var (success, message) = _userRepository.AddEmployee(user);
+            if (success)
+            {
+                MessageBox.Show(message);
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + message);
+            }
         }
     }
 }

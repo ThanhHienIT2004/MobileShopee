@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using MobileShopee.Db;
+using MobileShopee.Models;
 
 namespace MobileShopee.Repository
 {
@@ -80,6 +81,35 @@ namespace MobileShopee.Repository
             catch (Exception ex)
             {
                 return (false, "", "Lỗi: " + ex.Message);
+            }
+        }
+
+        public (bool success, string message) AddEmployee(User employee)
+        {
+            try
+            {
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbl_User (UserName, PWD, EmployeeName, Address, MobileNumber, Hint, Role) " +
+                                  "VALUES (@UserName, @PWD, @EmployeeName, @Address, @MobileNumber, @Hint, @Role)";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", employee.UserName);
+                        cmd.Parameters.AddWithValue("@PWD", employee.PWD);
+                        cmd.Parameters.AddWithValue("@EmployeeName", employee.EmployeeName);
+                        cmd.Parameters.AddWithValue("@Address", employee.Address);
+                        cmd.Parameters.AddWithValue("@MobileNumber", employee.MobileNumber);
+                        cmd.Parameters.AddWithValue("@Hint", employee.Hint);
+                        cmd.Parameters.AddWithValue("@Role", employee.Role);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return (true, "Tạo tài khoản thành công");
+                }
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
             }
         }
     }
