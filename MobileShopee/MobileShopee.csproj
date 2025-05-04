@@ -185,12 +185,6 @@
     <Compile Include="Features\admin\Admin_HomePage.Designer.cs">
       <DependentUpon>Admin_HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConformDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConformDetails.Designer.cs">
-      <DependentUpon>ConformDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Db\DbConnectionFactory.cs" />
     <Compile Include="Features\auth\AuthScreen.cs">
       <SubType>Form</SubType>
@@ -241,9 +235,6 @@
     <Compile Include="Validator.cs" />
     <EmbeddedResource Include="Features\admin\Admin_HomePage.resx">
       <DependentUpon>Admin_HomePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConformDetails.resx">
-      <DependentUpon>ConformDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\auth\AuthScreen.resx">
       <DependentUpon>AuthScreen.cs</DependentUpon>

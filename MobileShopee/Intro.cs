@@ -26,6 +26,7 @@ namespace MobileShopee
         {
             var form = new Form();
             form = new AuthScreen();
+            form.FormClosed += (s, args) => this.Close();
             form.Show();
             this.Hide();
         }
