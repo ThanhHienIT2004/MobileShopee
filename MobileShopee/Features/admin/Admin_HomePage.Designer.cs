@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -75,7 +75,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateSalesDay = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
@@ -83,7 +83,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateStartDtD = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -581,7 +581,7 @@
             // 
             this.tabPage8.Controls.Add(this.button6);
             this.tabPage8.Controls.Add(this.label17);
-            this.tabPage8.Controls.Add(this.dateTimePicker1);
+            this.tabPage8.Controls.Add(this.dateSalesDay);
             this.tabPage8.Controls.Add(this.label16);
             this.tabPage8.Controls.Add(this.dataGridViewSales);
             this.tabPage8.Location = new System.Drawing.Point(4, 28);
@@ -597,12 +597,13 @@
             // 
             this.button6.AutoSize = true;
             this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(493, 39);
+            this.button6.Location = new System.Drawing.Point(523, 35);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(77, 32);
             this.button6.TabIndex = 16;
             this.button6.Text = "Search";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label17
             // 
@@ -613,14 +614,14 @@
             this.label17.TabIndex = 15;
             this.label17.Text = "Total sale Amount in";
             // 
-            // dateTimePicker1
+            // dateSalesDay
             // 
-            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker1.Location = new System.Drawing.Point(284, 39);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(191, 28);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dateSalesDay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateSalesDay.Location = new System.Drawing.Point(284, 39);
+            this.dateSalesDay.Margin = new System.Windows.Forms.Padding(5);
+            this.dateSalesDay.Name = "dateSalesDay";
+            this.dateSalesDay.Size = new System.Drawing.Size(221, 28);
+            this.dateSalesDay.TabIndex = 13;
             // 
             // label16
             // 
@@ -637,14 +638,14 @@
             this.dataGridViewSales.AllowUserToAddRows = false;
             this.dataGridViewSales.AllowUserToDeleteRows = false;
             this.dataGridViewSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSaleId,
@@ -667,7 +668,7 @@
             this.tabPage9.Controls.Add(this.label20);
             this.tabPage9.Controls.Add(this.dataGridView2);
             this.tabPage9.Controls.Add(this.dateTimePicker3);
-            this.tabPage9.Controls.Add(this.dateTimePicker2);
+            this.tabPage9.Controls.Add(this.dateStartDtD);
             this.tabPage9.Controls.Add(this.label19);
             this.tabPage9.Controls.Add(this.label18);
             this.tabPage9.Location = new System.Drawing.Point(4, 28);
@@ -683,7 +684,7 @@
             // 
             this.btnSearchDtD.AutoSize = true;
             this.btnSearchDtD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSearchDtD.Location = new System.Drawing.Point(425, 75);
+            this.btnSearchDtD.Location = new System.Drawing.Point(431, 50);
             this.btnSearchDtD.Name = "btnSearchDtD";
             this.btnSearchDtD.Size = new System.Drawing.Size(77, 32);
             this.btnSearchDtD.TabIndex = 7;
@@ -712,37 +713,37 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(163, 79);
+            this.dateTimePicker3.Location = new System.Drawing.Point(179, 75);
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePicker3.Size = new System.Drawing.Size(213, 28);
             this.dateTimePicker3.TabIndex = 3;
             // 
-            // dateTimePicker2
+            // dateStartDtD
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(163, 30);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dateStartDtD.Location = new System.Drawing.Point(179, 30);
+            this.dateStartDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateStartDtD.Name = "dateStartDtD";
+            this.dateStartDtD.Size = new System.Drawing.Size(213, 28);
+            this.dateStartDtD.TabIndex = 2;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(81, 79);
+            this.label19.Location = new System.Drawing.Point(80, 75);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 22);
+            this.label19.Size = new System.Drawing.Size(87, 22);
             this.label19.TabIndex = 1;
-            this.label19.Text = "label19";
+            this.label19.Text = "End date:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(80, 30);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 22);
+            this.label18.Size = new System.Drawing.Size(93, 22);
             this.label18.TabIndex = 0;
-            this.label18.Text = "label18";
+            this.label18.Text = "Start date:";
             // 
             // tabPage4
             // 
@@ -1021,7 +1022,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateStartDtD;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button5;
@@ -1043,7 +1044,7 @@
         private System.Windows.Forms.Button btnSearchDtD;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateSalesDay;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridViewSales;
         private System.Windows.Forms.Button button6;

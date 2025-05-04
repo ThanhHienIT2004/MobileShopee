@@ -155,11 +155,13 @@ namespace MobileShopee
             }
         }
 
-        private void LoadSaleReports()
+        private void LoadSaleReportsByDate()
         {
             try
             {
-                var (success, reports, message) = _saleRepository.GetSaleReports();
+                DateTime selectedDate = dateSalesDay.Value.Date;
+                var (success, reports, message) = _saleRepository.GetSaleReportsbyDate(selectedDate);
+
                 if (success)
                 {
                     dataGridViewSales.DataSource = reports;
@@ -213,7 +215,7 @@ namespace MobileShopee
             LoadNextModelId();
             LoadNextTransId();
             LoadCompaniesIntoComboBox();
-            LoadSaleReports();
+            LoadSaleReportsByDate();
 
             comboBox4.SelectedIndexChanged += (s, ev) =>
             {
@@ -402,6 +404,11 @@ namespace MobileShopee
             {
                 MessageBox.Show($"Lỗi: {ex.Message}");
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LoadSaleReportsByDate();          
         }
     }
 }

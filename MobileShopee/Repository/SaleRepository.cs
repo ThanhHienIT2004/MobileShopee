@@ -59,7 +59,7 @@ namespace MobileShopee.Repository
             }
         }
 
-        public (bool success, List<SaleReports> data, string message) GetSaleReports()
+        public (bool success, List<SaleReports> data, string message) GetSaleReportsbyDate(DateTime day)
         {
             var reports = new List<SaleReports>();
             try
@@ -71,9 +71,11 @@ namespace MobileShopee.Repository
                         "FROM tbl_Sales s " +
                         "INNER JOIN tbl_Mobile mob ON mob.IMEINO = s.IMEINO " +
                         "INNER JOIN tbl_Model mod ON mob.ModelId = mod.ModelId " +
-                        "INNER JOIN tbl_Company c ON c.CompId = mod.CompId ";
+                        "INNER JOIN tbl_Company c ON c.CompId = mod.CompId " +
+                        "WHERE s.PurchaseDate = @PurchaseDate";
                     using (SqlCommand command = new SqlCommand(query, conn))
                     {
+                        command.Parameters.AddWithValue("@PurchaseDate", day);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
