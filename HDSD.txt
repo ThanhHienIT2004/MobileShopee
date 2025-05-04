@@ -1,0 +1,1 @@
+- Thay đổi kết nối đến sqlserver trong File App.Config

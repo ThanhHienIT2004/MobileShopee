@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MobileShopee.Db;
+using MobileShopee.Features.auth;
 using MobileShopee.Repository;
 
 namespace MobileShopee
@@ -57,6 +58,12 @@ namespace MobileShopee
             }
         }
 
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Forget forget = new Forget();
+            forget.Show();
+            this.Hide();
+        }
     }
 
 }

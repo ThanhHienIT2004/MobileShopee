@@ -52,8 +52,6 @@ namespace MobileShopee.Repository
 
             return companies;
         }
-
-        // Phương thức chèn công ty mới
         public bool PostCompany(string compId, string cName)
         {
             using (SqlConnection conn = _connectionFactory.CreateConnection())

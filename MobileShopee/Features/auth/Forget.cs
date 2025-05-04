@@ -51,5 +51,11 @@ namespace MobileShopee.Features.auth
             }
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AuthScreen authScreen = new AuthScreen();
+            authScreen.Show();
+            this.Hide();
+        }
     }
 }

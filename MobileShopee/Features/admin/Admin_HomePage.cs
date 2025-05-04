@@ -332,6 +332,7 @@ namespace MobileShopee
             try
             {
                 bool isSuccess = _companyRepository.PostCompany(compid,cname);
+                LoadCompaniesIntoComboBox();
                 if (isSuccess) {
                     MessageBox.Show("Thành công");
                     LoadNextCompanyId();
@@ -517,5 +518,6 @@ namespace MobileShopee
                 MessageBox.Show("Lỗi: " + message);
             }
         }
+
     }
 }
