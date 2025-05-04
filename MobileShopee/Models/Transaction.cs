@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MobileShopee.Models
 {
-    public class Mobile
+    public class Transaction
     {
+        public string TransId { get; set; }
         public string ModelId { get; set; }
-        public string IMEINO { get; set; }
-        public string Status { get; set; }
-        public DateTime? Warranty { get; set; }
-        public SqlMoney Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
+        public SqlMoney Amount { get; set; }
     }
 }

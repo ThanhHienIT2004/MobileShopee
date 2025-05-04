@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using MobileShopee.Db;
+using MobileShopee.Models;
 
 namespace MobileShopee.Repository
 {
@@ -13,168 +15,141 @@ namespace MobileShopee.Repository
         {
             _connectionFactory = connectionFactory;
         }
-
-        public bool ValidateUser(string username, string password)
+        public bool UserExists(string userName)
         {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            try
             {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM tbl_User WHERE UserName = @Username AND PWO = @Password";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
-                    return (int)cmd.ExecuteScalar() > 0;
-                }
-            }
-        }
-        public bool ValidateAdmin(string username, string password,string role) {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
-            {
-                conn.Open();
-                string querry = "SELECT COUNT(*) FROM tbl_User WHERE UserName = @Username AND PWO = @Password AND Role = @Role";
-                using (SqlCommand cmd = new SqlCommand(querry, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
-                    cmd.Parameters.AddWithValue("@Role", role);
-                    return (int)cmd.ExecuteScalar() > 0;
-                }
-            }
-        }
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
 
-        public DataTable GetCompanies()
-        {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
-            {
-                conn.Open();
-                string query = "SELECT CompId, CName FROM tbl_Company";
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
-                {
-                    DataTable companyTable = new DataTable();
-                    adapter.Fill(companyTable);
-                    return companyTable;
-                }
-            }
-        }
 
-        public DataTable GetModelsByCompany(string compId)
-        {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
-            {
-                conn.Open();
-                string query = "SELECT ModelId, ModelNum FROM tbl_Model WHERE CompId = @CompId";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@CompId", compId);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM tbl_User WHERE UserName = @UserName";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        DataTable modelTable = new DataTable();
-                        adapter.Fill(modelTable);
-                        return modelTable;
+                        cmd.Parameters.AddWithValue("@UserName", userName);
+                        return (int)cmd.ExecuteScalar() > 0;
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+                return false;
+            }
+
         }
 
-        public DataTable GetAvailableImeiByModel(string modelId)
+        public (bool Success, string Role, string Message) Login(string username, string password)
         {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            try
             {
-                conn.Open();
-                string query = "SELECT IMEINO, Price FROM tbl_Mobile WHERE ModelId = @ModelId AND Status = 'Available'";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                if (!UserExists(username))
                 {
-                    cmd.Parameters.AddWithValue("@ModelId", modelId);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    return (false, "", "Không có tài khoản " + username);
+                }
+
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT PWD, Role FROM tbl_User WHERE UserName = @UserName";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        DataTable imeiTable = new DataTable();
-                        adapter.Fill(imeiTable);
-                        return imeiTable;
+                        cmd.Parameters.AddWithValue("@UserName", username);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string storedPWD = reader["PWD"].ToString();
+                                string role = reader["Role"].ToString();
+
+                                if (password == storedPWD)
+                                {
+                                    return (true, role, "Đăng nhập thành công");
+                                }
+                                else
+                                {
+                                    return (false, "", "Mật khẩu sai");
+                                }
+                            }
+                        }
+
+                        return (false, "", "Lỗi trong quá trình đọc dữ liệu");
                     }
                 }
             }
-        }
-
-        public decimal GetPriceByImei(string imeiNo)
-        {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            catch (Exception ex)
             {
-                conn.Open();
-                string query = "SELECT Price FROM tbl_Mobile WHERE IMEINO = @IMEINO";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@IMEINO", imeiNo);
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? Convert.ToDecimal(result) : 0;
-                }
+                return (false, "", "Lỗi: " + ex.Message);
             }
         }
 
-        public void UpdateMobileStatus(string imeiNo, string status)
+        public string CheckUser(string username, string hint)
         {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            try
             {
-                conn.Open();
-                string query = "UPDATE tbl_Mobile SET Status = @Status WHERE IMEINO = @IMEINO";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                if (!UserExists(username))
                 {
-                    cmd.Parameters.AddWithValue("@Status", status);
-                    cmd.Parameters.AddWithValue("@IMEINO", imeiNo);
-                    cmd.ExecuteNonQuery();
+                    return $"Không có tài khoản {username}";
                 }
+
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT PWD FROM tbl_User WHERE UserName = @UserName AND Hint = @Hint";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", username);
+                        cmd.Parameters.AddWithValue("@Hint", hint);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string password = reader["PWD"].ToString();
+                                return password;
+                            }
+                            else
+                            {
+                                return "Gợi ý không đúng";
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Lỗi: " + ex.Message;
             }
         }
 
-        public void AddCustomer(string custId, string custName, string mobileNumber, string address, string email)
+
+        public (bool success, string message) AddEmployee(User employee)
         {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            try
             {
-                conn.Open();
-                string query = "INSERT INTO tbl_Customer (CustId, Cust_Name, MobileNumber, Address, Email) " +
-                              "VALUES (@CustId, @CustName, @MobileNumber, @Address, @Email)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
                 {
-                    cmd.Parameters.AddWithValue("@CustId", custId);
-                    cmd.Parameters.AddWithValue("@CustName", custName);
-                    cmd.Parameters.AddWithValue("@MobileNumber", mobileNumber);
-                    cmd.Parameters.AddWithValue("@Address", address);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    string query = "INSERT INTO tbl_User (UserName, PWD, EmployeeName, Address, MobileNumber, Hint, Role) " +
+                                  "VALUES (@UserName, @PWD, @EmployeeName, @Address, @MobileNumber, @Hint, @Role)";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", employee.UserName);
+                        cmd.Parameters.AddWithValue("@PWD", employee.PWD);
+                        cmd.Parameters.AddWithValue("@EmployeeName", employee.EmployeeName);
+                        cmd.Parameters.AddWithValue("@Address", employee.Address);
+                        cmd.Parameters.AddWithValue("@MobileNumber", employee.MobileNumber);
+                        cmd.Parameters.AddWithValue("@Hint", employee.Hint);
+                        cmd.Parameters.AddWithValue("@Role", employee.Role);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return (true, "Tạo tài khoản thành công");
                 }
             }
-        }
-
-        public void AddSale(string salesId, string imeiNo, DateTime purchaseDate, decimal price, string custId)
-        {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
+            catch (Exception ex)
             {
-                conn.Open();
-                string query = "INSERT INTO tbl_Sales (SId, IMEINO, PurchaseDate, Price, CustId) " +
-                              "VALUES (@SId, @IMEINO, @PurchaseDate, @Price, @CustId)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@SId", salesId);
-                    cmd.Parameters.AddWithValue("@IMEINO", imeiNo);
-                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
-                    cmd.Parameters.AddWithValue("@Price", price);
-                    cmd.Parameters.AddWithValue("@CustId", custId);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void UpdateModelQuantity(string modelId)
-        {
-            using (SqlConnection conn = _connectionFactory.CreateConnection())
-            {
-                conn.Open();
-                string query = "UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelId = @ModelId";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ModelId", modelId);
-                    cmd.ExecuteNonQuery();
-                }
+                return (false, ex.Message);
             }
         }
     }
