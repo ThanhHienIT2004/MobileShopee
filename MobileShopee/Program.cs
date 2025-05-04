@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileShopee.Features.auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +17,7 @@ namespace MobileShopee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Admin_HomePage());
-            Application.Run(new Intro());
-
+            Application.Run(new Forget());
         }
     }
 }
