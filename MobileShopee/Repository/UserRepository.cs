@@ -82,5 +82,45 @@ namespace MobileShopee.Repository
                 return (false, "", "Lỗi: " + ex.Message);
             }
         }
+
+        public string CheckUser(string username, string hint)
+        {
+            try
+            {
+                if (!UserExists(username))
+                {
+                    return $"Không có tài khoản {username}";
+                }
+
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT PWO FROM tbl_User WHERE UserName = @UserName AND Hint = @Hint";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", username);
+                        cmd.Parameters.AddWithValue("@Hint", hint);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string password = reader["PWO"].ToString();
+                                return password;
+                            }
+                            else
+                            {
+                                return "Gợi ý không đúng";
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Lỗi: " + ex.Message;
+            }
+        }
+
     }
 }

@@ -183,6 +183,12 @@
     <Compile Include="Features\auth\AuthScreen.Designer.cs">
       <DependentUpon>AuthScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\auth\Forget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\auth\Forget.Designer.cs">
+      <DependentUpon>Forget.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\employees\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\auth\AuthScreen.resx">
       <DependentUpon>AuthScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\auth\Forget.resx">
+      <DependentUpon>Forget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\employees\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
