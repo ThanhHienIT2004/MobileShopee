@@ -17,7 +17,7 @@ namespace MobileShopee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forget());
+            Application.Run(new Intro());
         }
     }
 }
