@@ -1,5 +1,8 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using MobileShopee.Db;
 using MobileShopee.Models;
 
@@ -53,6 +56,45 @@ namespace MobileShopee.Repository
                     cmd.Parameters.AddWithValue("@CustId", sale.CustId);
                     cmd.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public (bool success, List<SaleReports> data, string message) GetSaleReports()
+        {
+            var reports = new List<SaleReports>();
+            try
+            {
+                using (SqlConnection conn = _connectionFactory.CreateConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT s.SId, c.CName, mod.ModelNum, s.IMEINO, s.Price " +
+                        "FROM tbl_Sales s " +
+                        "INNER JOIN tbl_Mobile mob ON mob.IMEINO = s.IMEINO " +
+                        "INNER JOIN tbl_Model mod ON mob.ModelId = mod.ModelId " +
+                        "INNER JOIN tbl_Company c ON c.CompId = mod.CompId ";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                reports.Add(new SaleReports
+                                {
+                                    SaleId = reader["SId"]?.ToString(),
+                                    CompanyName = reader["CName"]?.ToString(),
+                                    ModelNumber = reader["ModelNum"]?.ToString(),
+                                    IMEINO = reader["IMEINO"]?.ToString(),
+                                    Price = reader["Price"] != DBNull.Value ? Convert.ToDecimal(reader["Price"]).ToString("F2") : null
+                                });
+                            }
+                        }
+                    }
+                }
+                return (true, reports, reports.Count > 0 ? "Lấy báo cáo bán hàng thành công" : "Không có dữ liệu bán hàng");
+            }
+            catch (Exception ex)
+            {
+                return (false, null, "Lỗi: " + ex.Message);
             }
         }
     }

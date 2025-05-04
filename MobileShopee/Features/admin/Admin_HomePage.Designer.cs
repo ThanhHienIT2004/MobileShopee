@@ -72,6 +72,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dataGridViewSales = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.btnSearchDtD = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -96,17 +102,11 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.SlsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMEINC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSaleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModelNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIMEI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -116,11 +116,11 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -577,6 +577,90 @@
             this.tabControl3.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl3.TabIndex = 0;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.button6);
+            this.tabPage8.Controls.Add(this.label17);
+            this.tabPage8.Controls.Add(this.dateTimePicker1);
+            this.tabPage8.Controls.Add(this.label16);
+            this.tabPage8.Controls.Add(this.dataGridViewSales);
+            this.tabPage8.Location = new System.Drawing.Point(4, 28);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage8.Size = new System.Drawing.Size(1160, 585);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "Day";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button6.Location = new System.Drawing.Point(493, 39);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(77, 32);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "Search";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 525);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(174, 22);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Total sale Amount in";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateTimePicker1.Location = new System.Drawing.Point(284, 39);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(191, 28);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(158, 44);
+            this.label16.Margin = new System.Windows.Forms.Padding(0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(108, 22);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Select Date:";
+            // 
+            // dataGridViewSales
+            // 
+            this.dataGridViewSales.AllowUserToAddRows = false;
+            this.dataGridViewSales.AllowUserToDeleteRows = false;
+            this.dataGridViewSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSaleId,
+            this.colCompanyName,
+            this.colModelNumber,
+            this.colIMEI,
+            this.colPrice});
+            this.dataGridViewSales.Location = new System.Drawing.Point(6, 130);
+            this.dataGridViewSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewSales.Name = "dataGridViewSales";
+            this.dataGridViewSales.ReadOnly = true;
+            this.dataGridViewSales.RowHeadersWidth = 51;
+            this.dataGridViewSales.RowTemplate.Height = 24;
+            this.dataGridViewSales.Size = new System.Drawing.Size(1148, 362);
+            this.dataGridViewSales.TabIndex = 14;
+            // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.btnSearchDtD);
@@ -815,124 +899,40 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
             // 
-            // tabPage8
+            // colSaleId
             // 
-            this.tabPage8.Controls.Add(this.button6);
-            this.tabPage8.Controls.Add(this.label17);
-            this.tabPage8.Controls.Add(this.dateTimePicker1);
-            this.tabPage8.Controls.Add(this.label16);
-            this.tabPage8.Controls.Add(this.dataGridView1);
-            this.tabPage8.Location = new System.Drawing.Point(4, 28);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage8.Size = new System.Drawing.Size(1160, 585);
-            this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Day";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.colSaleId.HeaderText = "Sales ID";
+            this.colSaleId.MinimumWidth = 6;
+            this.colSaleId.Name = "colSaleId";
+            this.colSaleId.ReadOnly = true;
             // 
-            // label17
+            // colCompanyName
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 525);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(174, 22);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Total sale Amount in";
+            this.colCompanyName.HeaderText = "Company Name";
+            this.colCompanyName.MinimumWidth = 6;
+            this.colCompanyName.Name = "colCompanyName";
+            this.colCompanyName.ReadOnly = true;
             // 
-            // dateTimePicker1
+            // colModelNumber
             // 
-            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker1.Location = new System.Drawing.Point(284, 39);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(191, 28);
-            this.dateTimePicker1.TabIndex = 13;
+            this.colModelNumber.HeaderText = "Model Number";
+            this.colModelNumber.MinimumWidth = 6;
+            this.colModelNumber.Name = "colModelNumber";
+            this.colModelNumber.ReadOnly = true;
             // 
-            // label16
+            // colIMEI
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(158, 44);
-            this.label16.Margin = new System.Windows.Forms.Padding(0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 22);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Select Date:";
+            this.colIMEI.HeaderText = "IMEINO";
+            this.colIMEI.MinimumWidth = 6;
+            this.colIMEI.Name = "colIMEI";
+            this.colIMEI.ReadOnly = true;
             // 
-            // dataGridView1
+            // colPrice
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SlsId,
-            this.CompanyName,
-            this.ModelNum,
-            this.IMEINC,
-            this.Price});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 130);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1148, 362);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // button6
-            // 
-            this.button6.AutoSize = true;
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(493, 39);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(77, 32);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Search";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // SlsId
-            // 
-            this.SlsId.HeaderText = "SlsId";
-            this.SlsId.MinimumWidth = 6;
-            this.SlsId.Name = "SlsId";
-            this.SlsId.ReadOnly = true;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.HeaderText = "Company Name";
-            this.CompanyName.MinimumWidth = 6;
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
-            // 
-            // ModelNum
-            // 
-            this.ModelNum.HeaderText = "Model Number";
-            this.ModelNum.MinimumWidth = 6;
-            this.ModelNum.Name = "ModelNum";
-            this.ModelNum.ReadOnly = true;
-            // 
-            // IMEINC
-            // 
-            this.IMEINC.HeaderText = "IMEINC";
-            this.IMEINC.MinimumWidth = 6;
-            this.IMEINC.Name = "IMEINC";
-            this.IMEINC.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.MinimumWidth = 6;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
             // 
             // Admin_HomePage
             // 
@@ -960,14 +960,14 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1045,12 +1045,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewSales;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SlsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModelNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMEINC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSaleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCompanyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colModelNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIMEI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
     }
 }

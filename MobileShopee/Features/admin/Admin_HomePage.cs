@@ -19,6 +19,7 @@ namespace MobileShopee
         private readonly ModelRepository _modelRepository;
         private readonly MobileRepository _mobileRepository;
         private readonly TransactionRepository _transactionRepository;
+        private readonly SaleRepository _saleRepository;
         public Admin_HomePage()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace MobileShopee
             _modelRepository = new ModelRepository(new DbConnectionFactory());
             _mobileRepository = new MobileRepository(new DbConnectionFactory());
             _transactionRepository = new TransactionRepository(new DbConnectionFactory());
+            _saleRepository = new SaleRepository(new DbConnectionFactory());
         }
 
         // Hàm này sẽ lấy ID tiếp theo và điền vào textBox1
@@ -153,12 +155,65 @@ namespace MobileShopee
             }
         }
 
+        private void LoadSaleReports()
+        {
+            try
+            {
+                var (success, reports, message) = _saleRepository.GetSaleReports();
+                if (success)
+                {
+                    dataGridViewSales.DataSource = reports;
+                    dataGridViewSales.AutoGenerateColumns = false;
+                    dataGridViewSales.Columns.Clear();
+                    dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colSaleId",
+                        DataPropertyName = "SaleId",
+                        HeaderText = "Mã bán hàng"
+                    });
+                    dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colCompanyName",
+                        DataPropertyName = "CompanyName",
+                        HeaderText = "Hãng"
+                    });
+                    dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colModelNumber",
+                        DataPropertyName = "ModelNumber",
+                        HeaderText = "Mẫu điện thoại"
+                    });
+                    dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colIMEI",
+                        DataPropertyName = "IMEINO",
+                        HeaderText = "IMEI"
+                    });
+                    dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        Name = "colPrice",
+                        DataPropertyName = "Price",
+                        HeaderText = "Giá bán"
+                    });
+                }
+                else
+                {
+                    MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi tải báo cáo: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Admin_HomePage_Load_1(object sender, EventArgs e)
         {
             LoadNextCompanyId();
             LoadNextModelId();
             LoadNextTransId();
             LoadCompaniesIntoComboBox();
+            LoadSaleReports();
 
             comboBox4.SelectedIndexChanged += (s, ev) =>
             {

@@ -14,4 +14,13 @@ namespace MobileShopee.Models
         public decimal Price { get; set; }
         public string CustId { get; set; }
     }
+
+    public class SaleReports
+    {
+        public string SaleId { get; set; }
+        public string CompanyName { get; set; }
+        public string ModelNumber { get; set; }
+        public string IMEINO { get; set; }
+        public string Price { get; set; }
+    }
 }
