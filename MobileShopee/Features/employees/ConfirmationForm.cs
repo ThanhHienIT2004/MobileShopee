@@ -62,5 +62,10 @@ namespace MobileShopee
         {
             this.Close();
         }
+
+        private void ConfirmationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
