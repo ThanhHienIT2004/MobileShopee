@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -86,27 +86,6 @@
             this.colIMEI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.btnSearchDtD = new System.Windows.Forms.Button();
-            this.dateEndDtD = new System.Windows.Forms.DateTimePicker();
-            this.dateStartDtD = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.txtTotalPriceSalesDtD = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dataGridViewSalesDtD = new System.Windows.Forms.DataGridView();
@@ -115,6 +94,27 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearchDtD = new System.Windows.Forms.Button();
+            this.dateEndDtD = new System.Windows.Forms.DateTimePicker();
+            this.dateStartDtD = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAddEmp = new System.Windows.Forms.Button();
+            this.txtHint = new System.Windows.Forms.TextBox();
+            this.txtRePWD = new System.Windows.Forms.TextBox();
+            this.txtPWD = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtEmpName = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -127,8 +127,8 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.tabPage9.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesDtD)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -655,14 +655,14 @@
             this.dataGridViewSales.AllowUserToAddRows = false;
             this.dataGridViewSales.AllowUserToDeleteRows = false;
             this.dataGridViewSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSaleId,
@@ -733,213 +733,9 @@
             this.tabPage9.Text = "Date to Date";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // btnSearchDtD
-            // 
-            this.btnSearchDtD.AutoSize = true;
-            this.btnSearchDtD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSearchDtD.Location = new System.Drawing.Point(431, 50);
-            this.btnSearchDtD.Name = "btnSearchDtD";
-            this.btnSearchDtD.Size = new System.Drawing.Size(77, 32);
-            this.btnSearchDtD.TabIndex = 7;
-            this.btnSearchDtD.Text = "Search";
-            this.btnSearchDtD.UseVisualStyleBackColor = true;
-            this.btnSearchDtD.Click += new System.EventHandler(this.btnSearchDtD_Click);
-            // 
-            // dateEndDtD
-            // 
-            this.dateEndDtD.Location = new System.Drawing.Point(179, 75);
-            this.dateEndDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateEndDtD.Name = "dateEndDtD";
-            this.dateEndDtD.Size = new System.Drawing.Size(213, 28);
-            this.dateEndDtD.TabIndex = 3;
-            this.dateEndDtD.Value = new System.DateTime(2025, 5, 5, 0, 0, 0, 0);
-            // 
-            // dateStartDtD
-            // 
-            this.dateStartDtD.Checked = false;
-            this.dateStartDtD.Location = new System.Drawing.Point(179, 30);
-            this.dateStartDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateStartDtD.Name = "dateStartDtD";
-            this.dateStartDtD.Size = new System.Drawing.Size(213, 28);
-            this.dateStartDtD.TabIndex = 2;
-            this.dateStartDtD.Value = new System.DateTime(2025, 5, 4, 17, 15, 8, 0);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(80, 75);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 22);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "End date:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(80, 30);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 22);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Start date:";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.textBox16);
-            this.tabPage4.Controls.Add(this.textBox15);
-            this.tabPage4.Controls.Add(this.textBox14);
-            this.tabPage4.Controls.Add(this.textBox13);
-            this.tabPage4.Controls.Add(this.textBox12);
-            this.tabPage4.Controls.Add(this.textBox11);
-            this.tabPage4.Controls.Add(this.textBox10);
-            this.tabPage4.Controls.Add(this.label27);
-            this.tabPage4.Controls.Add(this.label26);
-            this.tabPage4.Controls.Add(this.label25);
-            this.tabPage4.Controls.Add(this.label24);
-            this.tabPage4.Controls.Add(this.label23);
-            this.tabPage4.Controls.Add(this.label22);
-            this.tabPage4.Controls.Add(this.label21);
-            this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1174, 621);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Employee";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(203, 368);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "ADD";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(236, 320);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(108, 28);
-            this.textBox16.TabIndex = 13;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(244, 274);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 28);
-            this.textBox15.TabIndex = 12;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(244, 226);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 28);
-            this.textBox14.TabIndex = 11;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(244, 174);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 28);
-            this.textBox13.TabIndex = 10;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(244, 121);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 28);
-            this.textBox12.TabIndex = 9;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(244, 74);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 28);
-            this.textBox11.TabIndex = 8;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(244, 21);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 28);
-            this.textBox10.TabIndex = 7;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(127, 326);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(47, 22);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "Hint:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(127, 277);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(156, 22);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "Retype Password:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(127, 230);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(94, 22);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "Password:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(127, 178);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(105, 22);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "User Name:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(127, 126);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(67, 22);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Mobile:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(127, 80);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 22);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Address:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(127, 27);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(146, 22);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Employee Name:";
-            // 
             // txtTotalPriceSalesDtD
             // 
-            this.txtTotalPriceSalesDtD.Location = new System.Drawing.Point(296, 506);
+            this.txtTotalPriceSalesDtD.Location = new System.Drawing.Point(296, 503);
             this.txtTotalPriceSalesDtD.Name = "txtTotalPriceSalesDtD";
             this.txtTotalPriceSalesDtD.ReadOnly = true;
             this.txtTotalPriceSalesDtD.Size = new System.Drawing.Size(247, 28);
@@ -948,7 +744,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(68, 506);
+            this.label20.Location = new System.Drawing.Point(68, 503);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(174, 22);
             this.label20.TabIndex = 19;
@@ -959,14 +755,14 @@
             this.dataGridViewSalesDtD.AllowUserToAddRows = false;
             this.dataGridViewSalesDtD.AllowUserToDeleteRows = false;
             this.dataGridViewSalesDtD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalesDtD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalesDtD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewSalesDtD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalesDtD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -974,7 +770,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dataGridViewSalesDtD.Location = new System.Drawing.Point(6, 128);
+            this.dataGridViewSalesDtD.Location = new System.Drawing.Point(6, 130);
             this.dataGridViewSalesDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSalesDtD.Name = "dataGridViewSalesDtD";
             this.dataGridViewSalesDtD.ReadOnly = true;
@@ -1018,6 +814,218 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
+            // btnSearchDtD
+            // 
+            this.btnSearchDtD.AutoSize = true;
+            this.btnSearchDtD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSearchDtD.Location = new System.Drawing.Point(523, 51);
+            this.btnSearchDtD.Name = "btnSearchDtD";
+            this.btnSearchDtD.Size = new System.Drawing.Size(77, 32);
+            this.btnSearchDtD.TabIndex = 7;
+            this.btnSearchDtD.Text = "Search";
+            this.btnSearchDtD.UseVisualStyleBackColor = true;
+            this.btnSearchDtD.Click += new System.EventHandler(this.btnSearchDtD_Click);
+            // 
+            // dateEndDtD
+            // 
+            this.dateEndDtD.Location = new System.Drawing.Point(282, 76);
+            this.dateEndDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEndDtD.Name = "dateEndDtD";
+            this.dateEndDtD.Size = new System.Drawing.Size(213, 28);
+            this.dateEndDtD.TabIndex = 3;
+            this.dateEndDtD.Value = new System.DateTime(2025, 5, 5, 0, 0, 0, 0);
+            // 
+            // dateStartDtD
+            // 
+            this.dateStartDtD.Checked = false;
+            this.dateStartDtD.Location = new System.Drawing.Point(284, 31);
+            this.dateStartDtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateStartDtD.Name = "dateStartDtD";
+            this.dateStartDtD.Size = new System.Drawing.Size(213, 28);
+            this.dateStartDtD.TabIndex = 2;
+            this.dateStartDtD.Value = new System.DateTime(2025, 5, 4, 17, 15, 8, 0);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(150, 76);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 22);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "End date:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(150, 31);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 22);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Start date:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnAddEmp);
+            this.tabPage4.Controls.Add(this.txtHint);
+            this.tabPage4.Controls.Add(this.txtRePWD);
+            this.tabPage4.Controls.Add(this.txtPWD);
+            this.tabPage4.Controls.Add(this.txtUserName);
+            this.tabPage4.Controls.Add(this.txtMobile);
+            this.tabPage4.Controls.Add(this.txtAddress);
+            this.tabPage4.Controls.Add(this.txtEmpName);
+            this.tabPage4.Controls.Add(this.label27);
+            this.tabPage4.Controls.Add(this.label26);
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.label22);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Size = new System.Drawing.Size(1174, 621);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Employee";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnAddEmp
+            // 
+            this.btnAddEmp.Location = new System.Drawing.Point(517, 417);
+            this.btnAddEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddEmp.Name = "btnAddEmp";
+            this.btnAddEmp.Size = new System.Drawing.Size(128, 41);
+            this.btnAddEmp.TabIndex = 44;
+            this.btnAddEmp.Tag = "8";
+            this.btnAddEmp.Text = "ADD";
+            this.btnAddEmp.UseVisualStyleBackColor = true;
+            // 
+            // txtHint
+            // 
+            this.txtHint.Location = new System.Drawing.Point(566, 356);
+            this.txtHint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHint.Name = "txtHint";
+            this.txtHint.Size = new System.Drawing.Size(200, 28);
+            this.txtHint.TabIndex = 43;
+            this.txtHint.Tag = "7";
+            // 
+            // txtRePWD
+            // 
+            this.txtRePWD.Location = new System.Drawing.Point(566, 310);
+            this.txtRePWD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRePWD.Name = "txtRePWD";
+            this.txtRePWD.Size = new System.Drawing.Size(200, 28);
+            this.txtRePWD.TabIndex = 42;
+            this.txtRePWD.Tag = "6";
+            // 
+            // txtPWD
+            // 
+            this.txtPWD.Location = new System.Drawing.Point(566, 257);
+            this.txtPWD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPWD.Name = "txtPWD";
+            this.txtPWD.Size = new System.Drawing.Size(200, 28);
+            this.txtPWD.TabIndex = 41;
+            this.txtPWD.Tag = "5";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(566, 208);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(200, 28);
+            this.txtUserName.TabIndex = 40;
+            this.txtUserName.Tag = "4";
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(566, 159);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(200, 28);
+            this.txtMobile.TabIndex = 39;
+            this.txtMobile.Tag = "3";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(566, 112);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(200, 28);
+            this.txtAddress.TabIndex = 38;
+            this.txtAddress.Tag = "2";
+            // 
+            // txtEmpName
+            // 
+            this.txtEmpName.Location = new System.Drawing.Point(566, 54);
+            this.txtEmpName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEmpName.Name = "txtEmpName";
+            this.txtEmpName.Size = new System.Drawing.Size(200, 28);
+            this.txtEmpName.TabIndex = 37;
+            this.txtEmpName.Tag = "1";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(486, 359);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(47, 22);
+            this.label27.TabIndex = 36;
+            this.label27.Text = "Hint:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(377, 313);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(156, 22);
+            this.label26.TabIndex = 35;
+            this.label26.Text = "Retype Password:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(439, 260);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(94, 22);
+            this.label25.TabIndex = 34;
+            this.label25.Text = "Password:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(428, 214);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(105, 22);
+            this.label24.TabIndex = 33;
+            this.label24.Text = "User Name:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(466, 165);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 22);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Mobile:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(452, 118);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(81, 22);
+            this.label22.TabIndex = 31;
+            this.label22.Text = "Address:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(387, 57);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(146, 22);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Employee Name:";
+            // 
             // Admin_HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1049,9 +1057,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesDtD)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesDtD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1106,21 +1114,6 @@
         private System.Windows.Forms.DateTimePicker dateStartDtD;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
         private System.Windows.Forms.Button btnSearchDtD;
         private System.Windows.Forms.TabPage tabPage8;
@@ -1143,5 +1136,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btnAddEmp;
+        private System.Windows.Forms.TextBox txtHint;
+        private System.Windows.Forms.TextBox txtRePWD;
+        private System.Windows.Forms.TextBox txtPWD;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtMobile;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtEmpName;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }
