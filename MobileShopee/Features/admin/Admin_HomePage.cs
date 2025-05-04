@@ -214,19 +214,19 @@ namespace MobileShopee
                     {
                         Name = "colSaleId",
                         DataPropertyName = "SaleId",
-                        HeaderText = "Mã bán hàng"
+                        HeaderText = "Sale ID"
                     });
                     dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
                     {
                         Name = "colCompanyName",
                         DataPropertyName = "CompanyName",
-                        HeaderText = "Hãng"
+                        HeaderText = "Company Name"
                     });
                     dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
                     {
                         Name = "colModelNumber",
                         DataPropertyName = "ModelNumber",
-                        HeaderText = "Mẫu điện thoại"
+                        HeaderText = "Model Number"
                     });
                     dataGridViewSales.Columns.Add(new DataGridViewTextBoxColumn
                     {
@@ -238,7 +238,7 @@ namespace MobileShopee
                     {
                         Name = "colPrice",
                         DataPropertyName = "Price",
-                        HeaderText = "Giá bán"
+                        HeaderText = "Price"
                     });
 
                     txtTotalPriceSalesDay.Text = reports
@@ -273,19 +273,19 @@ namespace MobileShopee
                     {
                         Name = "colSaleId",
                         DataPropertyName = "SaleId",
-                        HeaderText = "Mã bán hàng"
+                        HeaderText = "Sale ID"
                     });
                     dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
                     {
                         Name = "colCompanyName",
                         DataPropertyName = "CompanyName",
-                        HeaderText = "Hãng"
+                        HeaderText = "Company Name"
                     });
                     dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
                     {
                         Name = "colModelNumber",
                         DataPropertyName = "ModelNumber",
-                        HeaderText = "Mẫu điện thoại"
+                        HeaderText = "Model Number"
                     });
                     dataGridViewSalesDtD.Columns.Add(new DataGridViewTextBoxColumn
                     {
@@ -297,7 +297,7 @@ namespace MobileShopee
                     {
                         Name = "colPrice",
                         DataPropertyName = "Price",
-                        HeaderText = "Giá bán"
+                        HeaderText = "Price"
                     });
 
                     txtTotalPriceSalesDtD.Text = reports
@@ -476,6 +476,10 @@ namespace MobileShopee
 
         private void btnSearchDtD_Click(object sender, EventArgs e)
         {
+            if (dateStartDtD.Value.Date > dateEndDtD.Value.Date) {
+                MessageBox.Show("Ngày bắt đầu và kết thúc không hợp lệ");
+                return;
+            }
             LoadSaleReportsByDtD();
         }
     }
